@@ -1,0 +1,957 @@
+{
+	"info": {
+		"_postman_id": "1c1e3c64-cf3d-46e1-b856-b46dc3e00ae5",
+		"name": "API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9785272"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Teacher\",\n    \"email\": \"student@gmail.com\",\n    \"password\": \"$password123\",\n    \"user_type\": \"student\",\n    \"department\": \"CSE\",\n    \"semester\": \"8th\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/account/register/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"mhkha2022@gmail.com\",\n    \"password\": \"k!r3vai?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/account/login/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 7330baa6942aef7033e312f8be43ed4f3f276119",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/account/logout/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"logout",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/account/user-list/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"user-list",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve User",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"is_active\": true,\n    \"user_id\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/account/update-active-status/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"update-active-status",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticated User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{teacher}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/account/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{student}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/account/profile/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Students List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/account/student-list/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"student-list",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"department\": \"CSE\",\n    \"designation\": \"Asst\",\n    \"teacher_id\": \"T10101\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/account/profile/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request Password Reset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"mhkha2022@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/account/password-reset/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"password-reset",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Class Room",
+			"item": [
+				{
+					"name": "Routine",
+					"item": [
+						{
+							"name": "Routines",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/routines/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"routines",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Routine",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{admin}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "semester",
+											"value": "2nd",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/home/joker/Music/resume.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/routines/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"routines",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Routine",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/routines/2/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"routines",
+										"2",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Routine",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{admin}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/home/joker/Downloads/Use case diagram.pdf"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/routines/2/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"routines",
+										"2",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Routine",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{admin}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/home/joker/Downloads/Use case diagram.pdf"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/routines/2/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"routines",
+										"2",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Notice",
+					"item": [
+						{
+							"name": "Notices",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/notices/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"notices",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Notice",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{admin}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Second Notice",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/home/joker/Downloads/Use case diagram.pdf"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/notices/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"notices",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Notice",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/notices/1/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"notices",
+										"1",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Notice",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{admin}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/home/joker/Downloads/Stock Manager.pdf"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/notices/1/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"notices",
+										"1",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Notice",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{admin}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/notices/1/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"notices",
+										"1",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Class",
+					"item": [
+						{
+							"name": "Classes",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{teacher}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/classes/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"classes",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Class",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{teacher}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Second Notice",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/home/joker/Documents/lv_0_20240923030440.mp4"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/classes/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"classes",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Class",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{student}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/classes/1/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"classes",
+										"1",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Class",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{teacher}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/home/joker/Downloads/Stock Manager.pdf"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/classes/1/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"classes",
+										"1",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Class",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{teacher}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/classes/1/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"classes",
+										"1",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Assignment",
+					"item": [
+						{
+							"name": "List",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{teacher}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/assignments/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"assignments",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{teacher}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Assignment Title",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/home/joker/Downloads/Use case diagram.pdf"
+										},
+										{
+											"key": "semester",
+											"value": "2nd",
+											"type": "text"
+										},
+										{
+											"key": "content",
+											"value": "Text Assignment",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/assignments/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"assignments",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Single",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{student}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/assignments/1/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"assignments",
+										"1",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{teacher}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "content",
+											"value": "Assignment text update",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/assignments/1/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"assignments",
+										"1",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token {{teacher}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/assignments/1/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"assignments",
+										"1",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "teacher",
+			"value": "c3a320c4b380b126ed7030afc1a464c2b52f591b"
+		},
+		{
+			"key": "student",
+			"value": "81f098614f6b39ceaf4f86f1661b571008b44092"
+		},
+		{
+			"key": "admin",
+			"value": "365d5544726898b28d92813bc5ab58ff59c87ccc",
+			"type": "string"
+		},
+		{
+			"key": "url",
+			"value": "http://127.0.0.1:8000/api",
+			"type": "string"
+		}
+	]
+}
