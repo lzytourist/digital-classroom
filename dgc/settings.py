@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-h1k%u5n2aupuih^0a+rzur2^hv!omuk9#g=@eks5=((g*riys^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['digital-classroom.onrender.com', 'localhost', '127.0.0.1']
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ALL_ORIGINS = True
