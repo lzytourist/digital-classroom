@@ -9,8 +9,9 @@ djangorestframework = "*"
 django-cors-headers = "*"
 django-cockroachdb = "*"
 psycopg2-binary = "*"
-whitenoise = "*"
 gunicorn = "*"
+whitenoise = {extras = ["brotli"], version = "*"}
+uvicorn = "*"
 
 [dev-packages]
 
