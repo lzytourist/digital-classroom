@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'dgc.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django_cockroachdb',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'HOST': os.getenv('DB_HOST'),
         'NAME': os.getenv('DB_NAME'),
         'USER': os.getenv('DB_USER'),

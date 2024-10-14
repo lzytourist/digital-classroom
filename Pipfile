@@ -7,11 +7,11 @@ name = "pypi"
 django = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
-django-cockroachdb = "*"
-psycopg2-binary = "*"
+django-cockroachdb = "==5.1.*"
 gunicorn = "*"
 whitenoise = {extras = ["brotli"], version = "*"}
 uvicorn = "*"
+psycopg = "*"
 
 [dev-packages]
 

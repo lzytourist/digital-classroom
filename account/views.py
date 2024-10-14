@@ -207,10 +207,14 @@ class UpdateUserActiveStatusAPIView(APIView):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
 
+        message = 'User status has been changed to inactive'
+
         try:
             user = User.objects.get(id=request.data.get('user_id'))
             user.is_active = serializer.validated_data.get('is_active')
             user.save()
+
+            message = 'User status has been changed to active'
         except User.DoesNotExist:
             return Response(
                 data={"error": "User not found."},
@@ -219,7 +223,7 @@ class UpdateUserActiveStatusAPIView(APIView):
 
         return Response(
             data={
-                'message': f'User active status been set {request.data.get('is_active')}'
+                'message': message
             }
         )
 
